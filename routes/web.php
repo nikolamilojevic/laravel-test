@@ -15,10 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/home', function () {
-    $name = 'Nikola';
-    $age = 36;
     return view('home');
 })->middleware('age');
+
+Route::get('home/{id}', 'HomeController@show');
 
 Route::get('/forbidden', function () {
     return view('forbidden');
