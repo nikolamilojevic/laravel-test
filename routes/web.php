@@ -12,14 +12,18 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/home', function () {
     return view('home');
-})->middleware('age');
+})->middleware('auth');
+// Route::get('/home', function () {
+//     return view('home');
+// })->middleware('age');
 
 Route::get('home/{id}', 'HomeController@show');
 
 Route::get('/forbidden', function () {
     return view('forbidden');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
