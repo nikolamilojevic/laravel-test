@@ -1,3 +1,3 @@
 @if($error)
-   <p>{{ $error }}
+   <p>{{ $error }}</p>
 @endif

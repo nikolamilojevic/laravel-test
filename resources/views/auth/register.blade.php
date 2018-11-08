@@ -17,11 +17,8 @@
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
 
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
+                                @include('layouts/partials/errors', ['error' => $errors->first('email')])
+                                
                             </div>
                         </div>
 
@@ -31,11 +28,8 @@
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
+                                @include('layouts/partials/errors', ['error' => $errors->first('password')])
+
                             </div>
                         </div>
 
@@ -54,11 +48,8 @@
                             <div class="col-md-6">
                                 <input id="first_name" type="text" class="form-control{{ $errors->has('first_name') ? ' is-invalid' : '' }}" name="first_name" value="{{ old('first_name') }}" required autofocus>
 
-                                @if ($errors->has('first_name'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('first_name') }}</strong>
-                                    </span>
-                                @endif
+                                @include('layouts/partials/errors', ['error' => $errors->first('first_name')])
+
                             </div>
                         </div>
 
@@ -68,11 +59,7 @@
                             <div class="col-md-6">
                                 <input id="last_name" type="text" class="form-control{{ $errors->has('last_name') ? ' is-invalid' : '' }}" name="last_name" value="{{ old('last_name') }}" required autofocus>
 
-                                @if ($errors->has('last_name'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('last_name') }}</strong>
-                                    </span>
-                                @endif
+                                @include('layouts/partials/errors', ['error' => $errors->first('last_name')])
                             </div>
                         </div>
 
@@ -82,11 +69,8 @@
                             <div class="col-md-6">
                                 <input id="company" type="text" class="form-control{{ $errors->has('company') ? ' is-invalid' : '' }}" name="company" value="{{ old('company') }}" required autofocus>
 
-                                @if ($errors->has('company'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('company') }}</strong>
-                                    </span>
-                                @endif
+                                @include('layouts/partials/errors', ['error' => $errors->first('company')])
+                                
                             </div>
                         </div>
 
