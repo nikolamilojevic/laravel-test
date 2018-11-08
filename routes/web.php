@@ -11,16 +11,15 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function () 
+{
     return view('home');
 })->middleware('auth');
-// Route::get('/home', function () {
-//     return view('home');
-// })->middleware('age');
 
 Route::get('home/{id}', 'HomeController@show');
 
-Route::get('/forbidden', function () {
+Route::get('/forbidden', function () 
+{
     return view('forbidden');
 });
 
