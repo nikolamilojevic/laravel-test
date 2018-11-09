@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Services\CountryService;
 
 class RegisterController extends Controller
 {
@@ -40,6 +41,12 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    public function showRegistrationForm()
+    {
+        $countries = CountryService::getCountries();
+        return view('auth.register', compact('countries'));
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -48,13 +55,15 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        $countries = CountryService::getCountries();
+
         return Validator::make($data, [
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
             'company' => ['required', 'string', 'max:255'],
-            'country' => ['required', 'string', 'max:255']
+            'country' => ['required', 'string', 'max:255', 'in:' . implode(',', $countries)]
         ]);
     }
 

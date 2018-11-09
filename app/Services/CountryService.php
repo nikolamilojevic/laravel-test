@@ -12,12 +12,9 @@ class CountryService
      * @param $class
      * @return string
      */
-    
     public static function getCountries() {
-        
-        $countries = ['Albania', 'Serbia', 'Brasil', 'Argentina', 'Egypt', 'Bosnia'];
 
-        return $countries;
-    
+        return ['Albania', 'Serbia', 'Brasil', 'Argentina', 'Egypt', 'Bosnia'];
+
     }
 }
